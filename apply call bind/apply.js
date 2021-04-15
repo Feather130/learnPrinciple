@@ -5,7 +5,13 @@ Function.prototype.apply2 = function (context, arr) {
     if (!arr) {
         result = contextTemp.fn();
     } else {
-        result = contextTemp.fn(arr);
+        result = contextTemp.fn(...arr);
+
+        // let args = [];
+        // for (let i = 0; i < arr.length; i++) {
+        //     args.push('arr[' + i + ']');
+        // }
+        // result = eval('contextTemp.fn(' + args + ')');
     }
     delete contextTemp.fn
     return result
